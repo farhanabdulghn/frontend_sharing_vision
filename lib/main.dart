@@ -10,7 +10,7 @@ void main() async {
 
   const environment = String.fromEnvironment(
     'environment',
-    defaultValue: kReleaseMode ? Environment.dev : Environment.prod,
+    defaultValue: kReleaseMode ? Environment.prod : Environment.dev,
   );
 
   Environment.initConfig(environment);
