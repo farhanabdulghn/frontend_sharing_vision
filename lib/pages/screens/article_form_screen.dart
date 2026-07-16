@@ -23,28 +23,6 @@ class _ArticleFormScreenState extends ConsumerState<ArticleFormScreen> {
 
   bool _isLoading = false;
 
-  @override
-  void initState() {
-    super.initState();
-    _titleController = TextEditingController(
-      text: widget.articleData?.title ?? '',
-    );
-    _contentController = TextEditingController(
-      text: widget.articleData?.content ?? '',
-    );
-    _categoryController = TextEditingController(
-      text: widget.articleData?.category ?? '',
-    );
-  }
-
-  @override
-  void dispose() {
-    _titleController.dispose();
-    _contentController.dispose();
-    _categoryController.dispose();
-    super.dispose();
-  }
-
   Future<void> _submitData(String status) async {
     if (!_formKey.currentState!.validate()) return;
 
@@ -80,7 +58,7 @@ class _ArticleFormScreenState extends ConsumerState<ArticleFormScreen> {
         SnackBar(content: Text('Article saved as $status successfully!')),
       );
       if (widget.isEdit) {
-        Navigator.pop(context);
+        Navigator.pop(context, true);
       } else {
         _titleController.clear();
         _contentController.clear();
@@ -95,6 +73,28 @@ class _ArticleFormScreenState extends ConsumerState<ArticleFormScreen> {
         );
       }
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _titleController = TextEditingController(
+      text: widget.articleData?.title ?? '',
+    );
+    _contentController = TextEditingController(
+      text: widget.articleData?.content ?? '',
+    );
+    _categoryController = TextEditingController(
+      text: widget.articleData?.category ?? '',
+    );
+  }
+
+  @override
+  void dispose() {
+    _titleController.dispose();
+    _contentController.dispose();
+    _categoryController.dispose();
+    super.dispose();
   }
 
   @override

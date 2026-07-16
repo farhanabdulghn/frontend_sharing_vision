@@ -42,7 +42,7 @@ final class PageHandleNotifierProvider
 }
 
 String _$pageHandleNotifierHash() =>
-    r'4a5c429fec69f43711f851a793b8e6b4eea8ac2b';
+    r'632a9cd8408be3998e496153557d94275aec7e16';
 
 abstract class _$PageHandleNotifier extends $Notifier<int> {
   int build();

@@ -5,10 +5,13 @@ import 'package:frontend_sharing_vision/networks/api_server.dart';
 class ArticleRepository {
   final _apiServer = ApiServer.getInstance();
 
-  Future<List<ArticleModel>> getArticles() async {
+  Future<List<ArticleModel>> getArticles({
+    int limit = 10,
+    int offset = 0,
+  }) async {
     final response = await _apiServer.callService(
       requestType: RequestType.get,
-      endPoint: '/article/10/0',
+      endPoint: '/article/$limit/$offset',
     );
 
     return response.toModelList(ArticleModel.fromJson);
