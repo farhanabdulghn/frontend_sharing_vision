@@ -13,7 +13,6 @@ class BaseApi {
           baseUrl: baseUrl,
           connectTimeout: Duration(seconds: 30),
           receiveTimeout: Duration(seconds: 45),
-          sendTimeout: Duration(seconds: 30),
           contentType: 'application/json;charset=UTF-8',
           headers: {'Charset': 'utf-8'},
         ),

@@ -4,8 +4,8 @@ extension ApiExtension on Response {
   bool get isSuccess {
     final data = this.data;
     if (data is Map<String, dynamic>) {
-      final status = data['status'];
-      return status == 'success' || status == true;
+      final status = data['success'];
+      return status == true;
     }
     return false;
   }

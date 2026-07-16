@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:frontend_sharing_vision/app_theme.dart';
 import 'package:frontend_sharing_vision/config/env.dart';
-import 'package:frontend_sharing_vision/pages/screens/home_screen.dart';
+import 'package:frontend_sharing_vision/pages/screens/main_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme(context),
-      home: HomeScreen(),
+      home: MainScreen(),
     );
   }
 }

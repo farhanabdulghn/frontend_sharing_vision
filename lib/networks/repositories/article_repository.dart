@@ -29,7 +29,7 @@ class ArticleRepository {
     required String category,
     required String status,
   }) async {
-    final queryParams = <String, dynamic>{
+    final payload = <String, dynamic>{
       'title': title,
       'content': content,
       'category': category,
@@ -39,30 +39,30 @@ class ArticleRepository {
     final response = await _apiServer.callService(
       requestType: RequestType.post,
       endPoint: '/article',
-      queryParams: queryParams,
+      payload: payload,
     );
 
     return response.isSuccess;
   }
 
   Future<bool> updateArticle({
-    required int id,
+    required int? id,
     String? title,
     String? content,
     String? category,
     String? status,
   }) async {
-    final queryParams = <String, dynamic>{};
+    final payload = <String, dynamic>{};
 
-    if (title.hasValue) queryParams['title'] = title;
-    if (content.hasValue) queryParams['content'] = content;
-    if (category.hasValue) queryParams['category'] = category;
-    if (status.hasValue) queryParams['status'] = status;
+    if (title.hasValue) payload['title'] = title;
+    if (content.hasValue) payload['content'] = content;
+    if (category.hasValue) payload['category'] = category;
+    if (status.hasValue) payload['status'] = status;
 
     final response = await _apiServer.callService(
       requestType: RequestType.put,
       endPoint: '/article/$id',
-      queryParams: queryParams,
+      payload: payload,
     );
 
     return response.isSuccess;
