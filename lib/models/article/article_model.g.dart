@@ -13,12 +13,12 @@ _ArticleModel _$ArticleModelFromJson(Map<String, dynamic> json) =>
       content: json['content'] as String?,
       category: json['category'] as String?,
       status: json['status'] as String?,
-      createdDate: json['createdDate'] == null
+      createdDate: json['created_date'] == null
           ? null
-          : DateTime.parse(json['createdDate'] as String),
-      updatedDate: json['updatedDate'] == null
+          : DateTime.parse(json['created_date'] as String),
+      updatedDate: json['updated_date'] == null
           ? null
-          : DateTime.parse(json['updatedDate'] as String),
+          : DateTime.parse(json['updated_date'] as String),
     );
 
 Map<String, dynamic> _$ArticleModelToJson(_ArticleModel instance) =>
@@ -28,6 +28,6 @@ Map<String, dynamic> _$ArticleModelToJson(_ArticleModel instance) =>
       'content': instance.content,
       'category': instance.category,
       'status': instance.status,
-      'createdDate': instance.createdDate?.toIso8601String(),
-      'updatedDate': instance.updatedDate?.toIso8601String(),
+      'created_date': instance.createdDate?.toIso8601String(),
+      'updated_date': instance.updatedDate?.toIso8601String(),
     };
